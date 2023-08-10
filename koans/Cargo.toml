@@ -1,0 +1,11 @@
+[package]
+name = "koans"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+anyhow = "1.0.72"
+clap = { version = "4.3.21", features = ["derive"] }
+read_input = "0.8.6"
+regex = "1.9.3"
+yansi = "0.5.1"
