@@ -1,0 +1,18 @@
+[package]
+name = "structured"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+anyhow = "1"
+tracing = { version = "0.1" }
+tracing-subscriber = { version = "0.3", features = ["fmt", "json"] }
+tracing-opentelemetry = "0.21"
+opentelemetry = "0.20.0"
+opentelemetry_sdk = { version = "0.20", features = ["rt-tokio"] }
+opentelemetry-otlp = { version = "0.13", features = ["tls-roots"] }
+tonic = { version = "0.9" }
+hyper = { version = "0.14", features = ["full"] }
+
+[dev-dependencies]
+tokio = "1.32.0"

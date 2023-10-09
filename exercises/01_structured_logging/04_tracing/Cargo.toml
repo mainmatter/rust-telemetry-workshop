@@ -1,0 +1,10 @@
+[package]
+name = "what_to_log"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+anyhow = "1"
+helpers = { path = "../../../helpers" }
+tracing = { version = "0.1" }
+tracing-subscriber = { version = "0.3", features = ["fmt"] }

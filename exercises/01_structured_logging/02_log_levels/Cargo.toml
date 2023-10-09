@@ -1,0 +1,16 @@
+[package]
+name = "log_filter_koan"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "min_level"
+path = "src/bins/min_level.rs"
+
+[[bin]]
+name = "module"
+path = "src/bins/module.rs"
+
+[dependencies]
+log = { version = "0.4", features = ["std"] }
+assert_cmd = "2"

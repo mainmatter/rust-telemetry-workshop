@@ -1,0 +1,6 @@
+workshop-runner/target/
+exercises/**/target/
+helpers/target/
+exercises/progress.db
+vendor/
+.cargo
