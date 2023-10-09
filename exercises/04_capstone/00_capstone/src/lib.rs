@@ -31,7 +31,7 @@
 mod tests {
     #[test]
     fn the_end() {
-        let msg = format!("I __!");
+        let msg = format!("I know how to instrument my Rust applications!");
         assert_eq!(msg, "I know how to instrument my Rust applications!")
     }
 }
