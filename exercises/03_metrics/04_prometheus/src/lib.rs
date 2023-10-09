@@ -15,7 +15,10 @@ mod tests {
         // Needed for TLS to work
         rustls::crypto::aws_lc_rs::default_provider().install_default().unwrap();
 
-        todo!()
+        metrics_exporter_prometheus::PrometheusBuilder::new()
+            .with_http_listener(socket_addr)
+            .install()
+            .unwrap();
     }
 
     #[test]

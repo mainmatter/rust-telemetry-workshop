@@ -3,7 +3,8 @@
 /// Add a `type` label to our `invocations` counter.
 /// It should be set to `odd` if `i` is odd, to `even` otherwise.
 pub fn do_something(i: u64) {
-    todo!()
+    let label_value = if i % 2 == 0 { "even" } else { "odd" };
+    metrics::counter!("invocations", "type" => label_value).increment(1);
 }
 
 #[cfg(test)]

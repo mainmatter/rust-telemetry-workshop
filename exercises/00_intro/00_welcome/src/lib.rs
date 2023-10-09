@@ -8,7 +8,7 @@
 //! You can also find solutions to all exercises in the `solutions` git branch.
 
 fn greeting() -> &'static str {
-    todo!()
+    "I'm ready to go!"
 }
 
 // Your solutions will be automatically verified by a set of tests.
