@@ -7,6 +7,7 @@ use tracing::Span;
 /// # Exercise
 ///
 /// Use `#[tracing::instrument]` to re-implement the previous exercise.
+#[tracing::instrument(skip_all, fields(caller_id = tracing::field::Empty))]
 pub async fn do_something(id: u16) {
     // We give a chance to the runtime to pause this future.
     // `.await` points are where the runtime gets back into the driver's seat

@@ -8,7 +8,7 @@
 
 pub fn do_something() {
     // TODO: increment a counter named "invocations" here
-    todo!()
+    metrics::counter!("invocations").increment(1);
 }
 
 #[cfg(test)]

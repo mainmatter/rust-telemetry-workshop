@@ -20,7 +20,7 @@ impl FilteredLogger {
         // **smaller** than or equal to the `LevelFilter`.
         // Therefore a greater `LevelFilter` is a **more permissive** one.
         // A bit twisted, yes.
-
+        //
         // In order to allow specific modules to be logged at a more verbose level than the default
         // one, we need to find the maximum level filter among all the module filters.
         // We'll use this as the overall maximum level for the logger.
@@ -49,10 +49,15 @@ impl log::Log for FilteredLogger {
         // I'll repeat it again: a `Level` is allowed by a `LevelFilter` if the `Level` is
         // **smaller than or equal to** the `LevelFilter`.
         // Therefore a greater `LevelFilter` is a **more permissive** one.
+        // A bit twisted, yes.
         //
         // Check if we have a module-specific filter for this record, otherwise use the
         // default one.
-        todo!()
+        if let Some(module_filter) = self.module_filters.get(metadata.target()) {
+            metadata.level() <= *module_filter
+        } else {
+            metadata.level() <= self.default_level_filter
+        }
     }
 
     fn log(&self, record: &Record) {

@@ -1,5 +1,5 @@
 fn affirmation() -> &'static str {
-    todo!()
+    "I know how to instrument my Rust applications!"
 }
 
 #[cfg(test)]
