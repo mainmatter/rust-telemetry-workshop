@@ -49,7 +49,11 @@ pub fn do_something() {
     REGISTER_INVOCATIONS.call_once(|| {
         // TODO: Set `Count` as the unit for "invocations" and "The number of times `do something`
         //   has been invoked" as its description.
-        todo!()
+        metrics::describe_counter!(
+            COUNTER_NAME,
+            metrics::Unit::Count,
+            "The number of times `do something` has been invoked"
+        );
     });
     metrics::increment_counter!(COUNTER_NAME)
 }

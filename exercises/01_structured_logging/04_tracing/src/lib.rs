@@ -49,7 +49,14 @@ pub use subscriber::init_test_subscriber;
 pub fn get_total(order_numbers: &[u64]) -> Result<u64, anyhow::Error> {
     // Tip: use `tracing::info_span!` to create a new span.
     // You'll have to learn about the *RAII guard* pattern!
-    todo!()
+    let span = tracing::info_span!("process total price");
+    let _guard = span.enter();
+    let mut total = 0;
+    for order_number in order_numbers {
+        let order_details = get_order_details(*order_number)?;
+        total += order_details.price;
+    }
+    Ok(total)
 }
 
 pub struct OrderDetails {
@@ -59,6 +66,8 @@ pub struct OrderDetails {
 
 /// A dummy function to simulate what would normally be a database query.
 fn get_order_details(order_number: u64) -> Result<OrderDetails, anyhow::Error> {
+    let span = tracing::info_span!("retrieve order");
+    let _guard = span.enter();
     if order_number % 4 == 0 {
         Err(anyhow::anyhow!("Failed to talk to the database"))
     } else {

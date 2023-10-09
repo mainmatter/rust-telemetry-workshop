@@ -59,7 +59,10 @@ mod tests {
     ///
     /// Initialize a pull-based Prometheus recorder, listening on the address specified as input.
     fn init_test_recorder(socket_addr: SocketAddr) {
-        todo!()
+        metrics_exporter_prometheus::PrometheusBuilder::new()
+            .with_http_listener(socket_addr)
+            .install()
+            .unwrap();
     }
 
     #[test]
