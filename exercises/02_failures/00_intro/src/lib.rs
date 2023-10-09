@@ -1,5 +1,5 @@
 fn affirmation() -> &'static str {
-    todo!()
+    "I'm ready to learn about failures!"
 }
 
 #[cfg(test)]
