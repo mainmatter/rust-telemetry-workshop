@@ -55,6 +55,10 @@ to verify your current solutions and move forward in the workshop.
 
 Enjoy!
 
+## Solutions
+
+You can find the solutions to the exercises in the [`solutions` branch](https://github.com/mainmatter/rust-telemetry-workshop/tree/solutions) of this repository.
+
 ## References
 
 Throughout the workshop, the following resources might turn out to be useful:
