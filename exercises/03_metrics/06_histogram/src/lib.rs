@@ -25,10 +25,19 @@
 use std::thread;
 use std::time::Duration;
 
+static INVOCATION_DURATION_SECONDS: std::sync::Once = std::sync::Once::new();
+const INVOCATION_DURATION_NAME: &str = "invocation_duration_seconds";
+
 fn do_something(t: Duration) {
+    INVOCATION_DURATION_SECONDS.call_once(|| {
+        metrics::describe_histogram!(
+            INVOCATION_DURATION_NAME,
+            metrics::Unit::Seconds,
+            "How long it took to invoke `do_something`"
+        );
+    });
     thread::sleep(t);
-    // TODO: register how long it takes to run this function using an `invocation_duration_seconds`
-    //   histogram.
+    metrics::histogram!(INVOCATION_DURATION_NAME, t)
 }
 
 #[cfg(test)]

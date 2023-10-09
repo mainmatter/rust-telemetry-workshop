@@ -30,9 +30,11 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     // Read the arguments that have been passed to the program.
     let args: Vec<String> = std::env::args().collect();
 
+    println!("Retrieving first argument");
     let Some(a) = args.get(1) else {
         return Err("You haven't passed any argument to the program! Two is the minimum.".into());
     };
+    println!("Retrieving second argument");
     let Some(b) = args.get(2) else {
         return Err(
             "You have only passed one argument to the program, you need another one!".into(),

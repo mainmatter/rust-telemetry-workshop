@@ -5,7 +5,7 @@
 mod tests {
     #[test]
     fn starting_block() {
-        let msg = format!("I'm ready for __!");
+        let msg = format!("I'm ready for the final project!");
         assert_eq!(msg, "I'm ready for the final project!")
     }
 }
