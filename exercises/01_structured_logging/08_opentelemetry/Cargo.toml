@@ -13,6 +13,7 @@ opentelemetry_sdk = { version = "0.20", features = ["rt-tokio"] }
 opentelemetry-otlp = { version = "0.13", features = ["tls-roots"] }
 tonic = { version = "0.9" }
 hyper = { version = "0.14", features = ["full"] }
+dotenvy = "0.15.7"
 
 [dev-dependencies]
 tokio = "1.32.0"

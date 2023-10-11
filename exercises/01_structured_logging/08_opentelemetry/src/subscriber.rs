@@ -1,3 +1,4 @@
+use dotenvy::dotenv;
 use opentelemetry::KeyValue;
 use opentelemetry_otlp::WithExportConfig;
 use opentelemetry_sdk::trace::Tracer;
@@ -18,6 +19,7 @@ pub fn init_test_subscriber() {
 }
 
 pub fn init_tracer() -> Tracer {
+    dotenv().expect(".env file not found");
     let honeycomb_key =
         std::env::var("HONEYCOMB_API_KEY").expect("`HONEYCOMB_API_KEY` must be set");
     let mut map = MetadataMap::with_capacity(1);
