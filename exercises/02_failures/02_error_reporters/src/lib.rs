@@ -25,7 +25,7 @@
 //! It is fairly common to upcast all errors to one of these types at the boundary of your
 //! application, and then use that opaque error type for all your error handling (and reporting)
 //! needs.
-//! When that's the case, you need to be carefully study the documentation of the error report
+//! When that's the case, you need to carefully study the documentation of the error report
 //! type you're using: does it expose a `source` method, even if it doesn't implement the `Error`
 //! trait? Does its `Debug` implementation already expose the entire source chain (e.g. `anyhow`)?
 //!
