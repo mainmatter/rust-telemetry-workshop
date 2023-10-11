@@ -5,7 +5,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     let args: Vec<String> = std::env::args().collect();
 
     // We configure the logger to emit all log records to **stdout**
-    log_koan::SimpleLogger::init(std::io::stdout)?;
+    log_koan::SimpleLogger::init(std::io::stdout())?;
 
     // We now invoke our (trivial) business logic
     log_koan::entrypoint(&args[1..])
