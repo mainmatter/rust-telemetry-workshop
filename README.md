@@ -31,7 +31,7 @@ If you run into any issue with the assumed level of Rust knowledge, please ping 
 ## Getting started
 
 ```bash
-git clone git@github.com:mainmatter.com/rust-telemetry-workshop.git
+git clone git@github.com:mainmatter/rust-telemetry-workshop.git
 cd rust-telemetry-workshop
 
 # Our `workshop-runner` CLI, you will need it to work through the exercises. 
