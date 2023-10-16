@@ -1,12 +1,12 @@
 use opentelemetry::global::shutdown_tracer_provider;
-use structured::init_test_subscriber;
+use opentelemetry_training::init_test_subscriber;
 
 #[tokio::test]
 async fn success() {
     init_test_subscriber();
     let order_numbers = vec![1, 2, 3];
 
-    let total = structured::get_total(&order_numbers).unwrap();
+    let total = opentelemetry_training::get_total(&order_numbers).unwrap();
 
     // Check that the total is correct.
     assert_eq!(total, 3117);

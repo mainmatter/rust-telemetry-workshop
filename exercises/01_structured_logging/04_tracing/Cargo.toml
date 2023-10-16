@@ -1,5 +1,5 @@
 [package]
-name = "what_to_log"
+name = "tracing_training"
 version = "0.1.0"
 edition = "2021"
 
