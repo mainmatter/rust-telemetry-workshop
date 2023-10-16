@@ -1,11 +1,11 @@
-use what_to_log::init_test_subscriber;
+use tracing_training::init_test_subscriber;
 
 #[test]
 fn success() {
     let logging_buffer = init_test_subscriber();
     let order_numbers = vec![1, 2, 3];
 
-    let total = what_to_log::get_total(&order_numbers).unwrap();
+    let total = tracing_training::get_total(&order_numbers).unwrap();
 
     // Check that the total is correct.
     assert_eq!(total, 3117);
