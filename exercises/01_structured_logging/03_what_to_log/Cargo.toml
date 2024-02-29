@@ -4,8 +4,8 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-anyhow = "1"
-log = { version = "0.4", features = ["std"] }
+anyhow = { workspace = true }
+log = { workspace = true, features = ["std"] }
 
 [dev-dependencies]
-helpers = { path = "../../../helpers" }
+helpers = { workspace = true }
