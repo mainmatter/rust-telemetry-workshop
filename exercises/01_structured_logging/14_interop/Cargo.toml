@@ -4,9 +4,10 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-anyhow = "1"
-helpers = { path = "../../../helpers" }
-tracing = { version = "0.1" }
-tracing-subscriber = { version = "0.3", default-features = false, features = ["fmt", "json", "env-filter"] }
-tracing-log = "0.1"
-log = "0.4"
+anyhow = { workspace = true }
+helpers = { workspace = true }
+log = { workspace = true }
+tokio = { workspace = true, features = ["rt", "macros"] }
+tracing = { workspace = true }
+tracing-log = { workspace = true }
+tracing-subscriber = { workspace = true, default-features = false, features = ["fmt", "json", "env-filter"] }

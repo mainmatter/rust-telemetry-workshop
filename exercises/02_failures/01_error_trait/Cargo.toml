@@ -4,6 +4,6 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-helpers = { path = "../../../helpers" }
-tracing-subscriber = { version = "0.3", features = ["fmt"] }
-tracing = "0.1"
+helpers = { workspace = true }
+tracing-subscriber = { workspace = true, features = ["fmt"] }
+tracing = { workspace = true }
