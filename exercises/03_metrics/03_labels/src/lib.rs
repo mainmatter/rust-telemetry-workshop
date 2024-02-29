@@ -53,21 +53,18 @@ pub fn do_something(i: u64) {
 #[cfg(test)]
 mod tests {
     use crate::do_something;
-    use metrics_util::debugging::{DebugValue, DebuggingRecorder, Snapshotter};
-
-    fn init_test_recorder() {
-        DebuggingRecorder::per_thread().install().unwrap();
-    }
+    use helpers::init_test_recorder;
+    use metrics_util::debugging::DebugValue;
 
     #[test]
     fn labels() {
-        init_test_recorder();
+        let snapshotter = init_test_recorder();
 
         for i in 0..7 {
             do_something(i);
         }
 
-        let metrics = Snapshotter::current_thread_snapshot().unwrap().into_vec();
+        let metrics = snapshotter.snapshot().into_vec();
         assert_eq!(metrics.len(), 2);
 
         for (key, _, _, value) in metrics {
