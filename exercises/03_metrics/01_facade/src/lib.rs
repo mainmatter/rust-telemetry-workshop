@@ -29,18 +29,18 @@ mod tests {
     use metrics_util::debugging::{DebugValue, DebuggingRecorder, Snapshotter};
     use metrics_util::MetricKind;
 
-    fn init_test_recorder() {
+    fn init_test_recorder() -> Snapshotter {
         // The `metrics-util` crate provides utilities to easily manipulate metrics
         // in our testing code.
-        // The `DebuggingRecorder` lets us attach a recorder to a single thread rather than a
-        // "global" one, which allows us not to have to split out tests across multiple test
-        // binaries to achieve isolation (what we did for all our `tracing` and `log` tests).
-        DebuggingRecorder::per_thread().install().unwrap();
+        let recorder = DebuggingRecorder::new();
+        let snapshotter = recorder.snapshotter();
+        recorder.install().unwrap();
+        snapshotter
     }
 
     #[test]
     fn increments() {
-        init_test_recorder();
+        let snapshotter = init_test_recorder();
         let n_invocations = 7;
 
         for _ in 0..n_invocations {
@@ -48,8 +48,8 @@ mod tests {
         }
 
         // We can get a handle to a "snapshot", the set of metrics
-        // that have been registered and recorded against the per-thread debugging recorder.
-        let metrics = Snapshotter::current_thread_snapshot().unwrap().into_vec();
+        // that have been registered and recorded against the test recorder.
+        let metrics = snapshotter.snapshot().into_vec();
         assert_eq!(metrics.len(), 1);
         let (metric_key, _, _, metric_value) = &metrics[0];
 

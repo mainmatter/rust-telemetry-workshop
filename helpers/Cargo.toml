@@ -7,3 +7,4 @@ edition = "2021"
 regex = "1"
 assert-json-diff = "2"
 serde_json = "1"
+metrics-util = { workspace = true }

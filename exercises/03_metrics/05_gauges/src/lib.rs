@@ -38,17 +38,14 @@ impl Balance {
 #[cfg(test)]
 mod tests {
     use crate::Balance;
+    use helpers::init_test_recorder;
     use metrics::Unit;
-    use metrics_util::debugging::{DebugValue, DebuggingRecorder, Snapshotter};
+    use metrics_util::debugging::DebugValue;
     use metrics_util::MetricKind;
-
-    fn init_test_recorder() {
-        DebuggingRecorder::per_thread().install().unwrap();
-    }
 
     #[test]
     fn gauges() {
-        init_test_recorder();
+        let snapshotter = init_test_recorder();
 
         let mut balance = Balance::new();
         for i in 0..7 {
@@ -59,7 +56,7 @@ mod tests {
             }
         }
 
-        let metrics = Snapshotter::current_thread_snapshot().unwrap().into_vec();
+        let metrics = snapshotter.snapshot().into_vec();
         assert_eq!(metrics.len(), 1);
         let (metric_key, unit, description, value) = &metrics[0];
         assert_eq!(metric_key.kind(), MetricKind::Gauge);

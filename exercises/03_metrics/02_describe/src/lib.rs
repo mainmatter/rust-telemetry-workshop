@@ -4,26 +4,18 @@
 //! You created a counter: a **monotonically increasing** value.  
 //! Once it has been created, its value can only be incremented.
 //!
-//! You can create a counter with three different macros:
+//! You can create a counter using the `counter!` macro.
+//! You can then call `increment` on the `Counter` returned by the macro to increment its value.
 //!
-//! - `increment_counter!`
-//! - `counter!`
-//! - `absolute_counter!`
+//! `Counter` exposes another method, `absolute`, which is a bit special: it's primarily designed to **initialize**
+//! a counter sequence, specifying a non-zero initial value.
+//! Beware: recorders will enforce the monotonicity property for counters, so you can't rely on `absolute`
+//! to artificially decrement an existing counter.
 //!
-//! `increment_counter!` instructs the recorder to add 1 to the current counter value.
-//!
-//! `counter!`, instead, lets you specify a custom increment—e.g. `counter!("invocations", 2)`
-//! will increase the counter value by 2.
-//!
-//! `absolute_counter!` is a bit special: it's primarily meant to initialize a counter sequence,
-//! specifying a non-zero initial value. Beware: recorders will enforce the monotonicity property
-//! for counters, so you can't rely on `absolute_counter!` to artificially decrement an existing
-//! counter.
-//!
-//! In all three cases, the `Recorder` implementation is expected to:
+//! When using `counter!`, the `Recorder` implementation is expected to:
 //!
 //! - Create a new counter with the name you specified, if one doesn't exist;
-//! - Retrieve and update the counter, if one exists.
+//! - Retrieve the counter, if one exists.
 //!
 //! `UPSERT` behaviour, for the SQL-minded among us.
 //!
@@ -51,29 +43,25 @@ pub fn do_something() {
         //   has been invoked" as its description.
         todo!()
     });
-    metrics::increment_counter!(COUNTER_NAME)
+    metrics::counter!(COUNTER_NAME).increment(1);
 }
 
 #[cfg(test)]
 mod tests {
     use crate::{do_something, COUNTER_NAME};
+    use helpers::init_test_recorder;
     use metrics::Unit;
-    use metrics_util::debugging::{DebuggingRecorder, Snapshotter};
     use metrics_util::MetricKind;
-
-    fn init_test_recorder() {
-        DebuggingRecorder::per_thread().install().unwrap();
-    }
 
     #[test]
     fn describe() {
-        init_test_recorder();
+        let snapshotter = init_test_recorder();
 
         for _ in 0..7 {
             do_something();
         }
 
-        let metrics = Snapshotter::current_thread_snapshot().unwrap().into_vec();
+        let metrics = snapshotter.snapshot().into_vec();
         assert_eq!(metrics.len(), 1);
         let (metric_key, unit, description, _) = &metrics[0];
 

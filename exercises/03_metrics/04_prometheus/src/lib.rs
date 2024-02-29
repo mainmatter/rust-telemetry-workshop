@@ -47,7 +47,7 @@
 
 pub fn do_something(i: u64) {
     let label_value = if i % 2 == 0 { "even" } else { "odd" };
-    metrics::increment_counter!("invocations", "type" => label_value)
+    metrics::counter!("invocations", "type" => label_value).increment(1)
 }
 
 #[cfg(test)]
