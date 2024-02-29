@@ -48,27 +48,24 @@
 /// It should be set to `odd` if `i` is odd, to `even` otherwise.
 pub fn do_something(i: u64) {
     let label_value = if i % 2 == 0 { "even" } else { "odd" };
-    metrics::increment_counter!("invocations", "type" => label_value);
+    metrics::counter!("invocations", "type" => label_value).increment(1);
 }
 
 #[cfg(test)]
 mod tests {
     use crate::do_something;
-    use metrics_util::debugging::{DebugValue, DebuggingRecorder, Snapshotter};
-
-    fn init_test_recorder() {
-        DebuggingRecorder::per_thread().install().unwrap();
-    }
+    use helpers::init_test_recorder;
+    use metrics_util::debugging::DebugValue;
 
     #[test]
     fn labels() {
-        init_test_recorder();
+        let snapshotter = init_test_recorder();
 
         for i in 0..7 {
             do_something(i);
         }
 
-        let metrics = Snapshotter::current_thread_snapshot().unwrap().into_vec();
+        let metrics = snapshotter.snapshot().into_vec();
         assert_eq!(metrics.len(), 2);
 
         for (key, _, _, value) in metrics {

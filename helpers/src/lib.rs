@@ -2,6 +2,7 @@
 use assert_json_diff::{CompareMode, Config};
 use std::str::FromStr;
 use std::sync::{Arc, Mutex, MutexGuard, TryLockError};
+use metrics_util::debugging::{DebuggingRecorder, Snapshotter};
 
 /// Assert that the right-hand expression matches the regex specified as first argument.
 #[macro_export]
@@ -175,4 +176,13 @@ impl<'a> LogLine<'a> {
     pub fn text(&self) -> &str {
         self.line
     }
+}
+
+pub fn init_test_recorder() -> Snapshotter {
+    // The `metrics-util` crate provides utilities to easily manipulate metrics
+    // in our testing code.
+    let recorder = DebuggingRecorder::new();
+    let snapshotter = recorder.snapshotter();
+    recorder.install().unwrap();
+    snapshotter
 }
