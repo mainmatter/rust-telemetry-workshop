@@ -6,7 +6,7 @@ edition = "2021"
 [dependencies]
 anyhow = { workspace = true }
 tracing = { workspace = true }
-tracing-subscriber = { workspace = true, features = ["fmt", "json"] }
+tracing-subscriber = { workspace = true, default-features = true, features = ["fmt", "json"] }
 tracing-opentelemetry = { workspace = true }
 opentelemetry = { workspace = true }
 opentelemetry_sdk = { workspace = true, features = ["rt-tokio"] }

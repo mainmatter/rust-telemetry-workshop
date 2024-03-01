@@ -3,7 +3,7 @@ members = [
     "exercises/*/*",
     "helpers",
 ]
-resolver = "2"
+resolver = "1"
 
 [workspace.dependencies]
 anyhow = "1"
@@ -15,16 +15,16 @@ log = "0.4"
 metrics = "0.22.1"
 metrics-util = "0.16.2"
 metrics-exporter-prometheus = "0.13.1"
-opentelemetry = "0.20.0"
-opentelemetry_sdk = "0.20"
-opentelemetry-otlp = "0.13"
+opentelemetry = "0.21.0"
+opentelemetry_sdk = "0.21"
+opentelemetry-otlp = "0.14"
 serde_json = "1"
 tempfile = "3.8"
 tokio = "1.32.0"
 tonic = "0.9"
 tracing = "0.1"
-tracing-log = "0.1"
+tracing-log = "0.2"
 tracing-panic = "0.1"
-tracing-subscriber = "0.3"
-tracing-opentelemetry = "0.21"
+tracing-subscriber = { version = "0.3", default-features = false }
+tracing-opentelemetry = "0.22"
 ureq = "2"

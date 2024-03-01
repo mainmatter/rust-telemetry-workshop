@@ -8,4 +8,4 @@ anyhow = { workspace = true }
 helpers = { workspace = true }
 tokio = { workspace = true, features = ["rt", "macros"] }
 tracing = { workspace = true }
-tracing-subscriber = { workspace = true, features = ["fmt", "json", "env-filter"] }
+tracing-subscriber = { workspace = true, default-features = true, features = ["fmt", "json", "env-filter"] }

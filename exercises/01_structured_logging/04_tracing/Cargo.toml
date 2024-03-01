@@ -7,4 +7,4 @@ edition = "2021"
 anyhow = { workspace = true }
 helpers = { workspace = true }
 tracing = { workspace = true }
-tracing-subscriber = { workspace = true, features = ["fmt"] }
+tracing-subscriber = { workspace = true, default-features = true, features = ["fmt"] }
