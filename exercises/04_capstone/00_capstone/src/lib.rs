@@ -26,6 +26,9 @@
 //!
 //! I don't have a suite of tests for you here, but please call me in when you're done—I want to
 //! see what you come with!
+//!
+//! If you're looking for inspiration, you can check out these solutions:
+//! - [Official `actix-web` solution](https://github.com/actix/examples/tree/master/tracing/mainmatter-workshop)
 
 #[cfg(test)]
 mod tests {
