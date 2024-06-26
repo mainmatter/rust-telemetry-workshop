@@ -42,7 +42,7 @@
 //!   This model comes with some advantages: you don't need to worry too much about balancing your
 //!   work across threads, the runtime will transparently take care of it for you.  
 //!   It also introduces some challenges: you can't rely on thread-local state to keep track of
-//!   values that the future cares about, because the next it's polled it may be on a different
+//!   values that the future cares about, because the next time it's polled it may be on a different
 //!   thread where that state is not available (or it's set to a different value).
 //!
 //! # `Instrumented`
