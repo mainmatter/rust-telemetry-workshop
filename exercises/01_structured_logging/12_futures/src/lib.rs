@@ -26,7 +26,7 @@
 //!
 //! ## Async runtimes
 //!
-//! The component in charge of polling a future is known as **asynchronous runtime**.
+//! The component in charge of polling a future is known as an **asynchronous runtime**.
 //! Rust's standard library does not include a "default" asynchronous runtime. You need to bring
 //! your own, usually as a third-party dependency.
 //!
