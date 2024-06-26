@@ -26,7 +26,7 @@
 //!
 //! ## Async runtimes
 //!
-//! The component in charge of polling a future is known as **asynchronous runtime**.
+//! The component in charge of polling a future is known as an **asynchronous runtime**.
 //! Rust's standard library does not include a "default" asynchronous runtime. You need to bring
 //! your own, usually as a third-party dependency.
 //!
@@ -42,7 +42,7 @@
 //!   This model comes with some advantages: you don't need to worry too much about balancing your
 //!   work across threads, the runtime will transparently take care of it for you.  
 //!   It also introduces some challenges: you can't rely on thread-local state to keep track of
-//!   values that the future cares about, because the next it's polled it may be on a different
+//!   values that the future cares about, because the next time it's polled it may be on a different
 //!   thread where that state is not available (or it's set to a different value).
 //!
 //! # `Instrumented`
@@ -50,7 +50,7 @@
 //! As much as possible, we want our instrumentation code to behave correctly no matter what runtime
 //! our code is being executed on.  
 //! Let's assume that a future is a unit of work we want to track. We want to know how much time
-//! it is spent doing work (i.e. inside `poll`), as well as how long it takes in terms of wall
+//! it spent doing work (i.e. inside `poll`), as well as how long it takes in terms of wall
 //! clock time.  
 //! Based on what we discussed so far, it follows that:
 //!
@@ -95,7 +95,7 @@ use tracing::Span;
 /// matches the expected one.
 pub async fn do_something(id: u16) {
     // We give a chance to the runtime to pause this future
-    // `.await` points is where the runtime gets back into the driving sit
+    // `.await` points is where the runtime gets back into the driver's seat
     // when it comes to async functions.
     yield_now().await;
     Span::current().record("caller_id", id);

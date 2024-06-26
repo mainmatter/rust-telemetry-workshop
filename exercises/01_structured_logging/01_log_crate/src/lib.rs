@@ -86,7 +86,7 @@ where
     // - share it across threads (`Sync` trait)
     // - use the sink for as long as the program runs (`'static` lifetime)
     //
-    // The last three requirements comes from the `log::Log` trait itself.
+    // The last three requirements come from the `log::Log` trait itself.
     Sink: Write + Send + Sync + 'static,
 {
     pub fn init(sink: Sink) -> Result<(), log::SetLoggerError> {

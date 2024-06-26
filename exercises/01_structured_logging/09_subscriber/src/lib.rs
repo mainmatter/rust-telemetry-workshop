@@ -6,7 +6,7 @@
 //! # `Subscriber`
 //!
 //! To see `tracing` in action we've already had to play with different processors:
-//! interpolated text to the console, JSON, OpenTelemetry.  
+//! interpolated text to the console, JSON, and OpenTelemetry.  
 //!
 //! They are all examples of `tracing` **subscribers**—i.e. implementors of the
 //! [`Subscriber`](https://docs.rs/tracing/latest/tracing/subscriber/trait.Subscriber.html)
