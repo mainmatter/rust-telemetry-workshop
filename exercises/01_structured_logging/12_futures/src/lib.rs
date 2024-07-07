@@ -94,8 +94,8 @@ use tracing::Span;
 /// In the test below, attach a span to the invocations of `do_something` so that the output
 /// matches the expected one.
 pub async fn do_something(id: u16) {
-    // We give a chance to the runtime to pause this future
-    // `.await` points is where the runtime gets back into the driver's seat
+    // We give a chance to the runtime to pause this future.
+    // `.await` points are where the runtime gets back into the driver's seat
     // when it comes to async functions.
     yield_now().await;
     Span::current().record("caller_id", id);

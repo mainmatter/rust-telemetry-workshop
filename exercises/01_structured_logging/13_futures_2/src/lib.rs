@@ -19,8 +19,8 @@ use tracing::Span;
 ///
 /// Use `#[tracing::instrument]` to re-implement the previous exercise.
 pub async fn do_something(id: u16) {
-    // We give a chance to the runtime to pause this future
-    // `.await` points is where the runtime gets back into the driving sit
+    // We give a chance to the runtime to pause this future.
+    // `.await` points are where the runtime gets back into the driver's seat
     // when it comes to async functions.
     yield_now().await;
     Span::current().record("caller_id", id);
