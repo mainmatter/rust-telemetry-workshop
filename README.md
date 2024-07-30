@@ -20,22 +20,8 @@ If you run into any issue with the assumed level of Rust knowledge, please ping 
 
 ## Getting started
 
-Run
-
-```bash
-# Install necessary tools
-cargo install mdbook
-cargo install --git https://github.com/mainmatter/100-exercises-to-learn-rust mdbook-exercise-linker
-
-# Clone the repository
-git clone git@github.com:mainmatter/rust-telemetry-workshop.git
-cd rust-telemetry-workshop
-
-# Serve the book locally
-cd book && mdbook serve --port 3012 --open
-```
-
-to open the companion book in your browser.
+Open [the companion book for this course](https://rust-exercises.com/telemetry/) in your browser.
+Follow the instructions there to get started.
 
 ## Requirements
 
