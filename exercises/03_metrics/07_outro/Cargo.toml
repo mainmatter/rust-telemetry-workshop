@@ -1,4 +1,6 @@
 [package]
-name = "outro_3"
+name = "capstone"
 version = "0.1.0"
 edition = "2021"
+
+[dependencies]

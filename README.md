@@ -18,6 +18,25 @@ If you run into any issue with the assumed level of Rust knowledge, please ping 
 > It's one of the trainings in [our portfolio of Rust workshops](https://mainmatter.com/services/workshops/rust/).  
 > Check out our [landing page](https://mainmatter.com/rust-consulting/) if you're looking for Rust consulting or training!
 
+## Getting started
+
+Run
+
+```bash
+# Install necessary tools
+cargo install mdbook
+cargo install --git https://github.com/mainmatter/100-exercises-to-learn-rust mdbook-exercise-linker
+
+# Clone the repository
+git clone git@github.com:mainmatter/rust-telemetry-workshop.git
+cd rust-telemetry-workshop
+
+# Serve the book locally
+cd book && mdbook serve --port 3012 --open
+```
+
+to open the companion book in your browser.
+
 ## Requirements
 
 - **Rust** (follow instructions [here](https://www.rust-lang.org/tools/install)).  
@@ -25,35 +44,8 @@ If you run into any issue with the assumed level of Rust knowledge, please ping 
   If not, update using `rustup update` (or another appropriate command depending on how you installed Rust on your system).
 - _(Optional)_ An IDE with Rust autocompletion support.
   We recommend one of the following:
-    - [RustRover](https://www.jetbrains.com/rust/);
-    - [Visual Studio Code](https://code.visualstudio.com) with the [`rust-analyzer`](https://marketplace.visualstudio.com/items?itemName=matklad.rust-analyzer) extension.  
-
-## Getting started
-
-```bash
-git clone git@github.com:mainmatter/rust-telemetry-workshop.git
-cd rust-telemetry-workshop
-
-# Our `workshop-runner` CLI, you will need it to work through the exercises. 
-# You can run `wr --help` to check that everything is running properly
-cargo install workshop-runner
-
-# Work on your solution in a branch. 
-git checkout -b my-solution
-
-# Get started!
-wr
-```
-
-Follow the instructions shown in the terminal to get started with the first exercise.
-
-Run this command from the top-level folder
-```bash
-wr
-```
-to verify your current solutions and move forward in the workshop.
-
-Enjoy!
+  - [RustRover](https://www.jetbrains.com/rust/);
+  - [Visual Studio Code](https://code.visualstudio.com) with the [`rust-analyzer`](https://marketplace.visualstudio.com/items?itemName=matklad.rust-analyzer) extension.
 
 ## Solutions
 

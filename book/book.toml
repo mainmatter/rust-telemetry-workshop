@@ -1,0 +1,12 @@
+[book]
+authors = ["Luca Palmieri (Mainmatter)"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Rust telemetry workshop"
+
+[output.html]
+git-repository-url = "https://github.com/mainmatter/rust-telemetry-workshop"
+
+[preprocessor.exercise-linker]
+exercise_root_url = "https://github.com/mainmatter/rust-telemetry-workshop/tree/main/exercises"
