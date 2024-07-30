@@ -1,0 +1,33 @@
+# Summary
+
+- [Welcome](00_intro/00_welcome.md)
+
+- [Structured logging](01_structured_logging/00_intro.md)
+  - [The `log` crate](01_structured_logging/01_log_crate.md)
+  - [Log levels](01_structured_logging/02_log_levels.md)
+  - [What to log](01_structured_logging/03_what_to_log.md)
+  - [The `tracing` crate](01_structured_logging/04_tracing.md)
+  - [Fields](01_structured_logging/05_fields.md)
+  - [`instrument` macro](01_structured_logging/06_instrument_macro.md)
+  - [Structured output](01_structured_logging/07_structured_output.md)
+  - [OpenTelemetry](01_structured_logging/08_opentelemetry.md)
+  - [`tracing` subscribers](01_structured_logging/09_subscriber.md)
+  - [The lifecycle of a `Span`](01_structured_logging/10_span_lifecycle.md)
+  - [Thread-local state](01_structured_logging/11_thread_local_state.md)
+  - [Instrumenting async code](01_structured_logging/12_futures.md)
+  - [Instrumenting async code #2](01_structured_logging/13_futures_2.md)
+  - [Interoperability](01_structured_logging/14_interop.md)
+
+- [Error handling](02_failures/00_intro.md)
+  - [The `Error` trait](02_failures/01_error_trait.md)
+  - [Error reporters](02_failures/02_error_reporters.md)
+  - [Panic handling](02_failures/03_panics.md)
+
+- [Metrics](03_metrics/00_intro.md)
+  - [The `metrics` crate](03_metrics/01_facade.md)
+  - [Describe](03_metrics/02_describe.md)
+  - [Labels](03_metrics/03_labels.md)
+  - [Prometheus](03_metrics/04_prometheus.md)
+  - [Gauges](03_metrics/05_gauges.md)
+  - [Histograms](03_metrics/06_histogram.md)
+  - [Outro](03_metrics/07_outro.md)

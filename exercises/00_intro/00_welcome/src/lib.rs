@@ -1,34 +1,31 @@
-/// Welcome to this workshop!
-///
-/// # What is this about
-///
-/// You'll be learning how to build **observable** applications in Rust.
-///
-/// > Observability is about being able to ask arbitrary questions about your environment without
-/// > —and this is the key part—having to know ahead of time what you wanted to ask.
-/// >
-/// > Honeycomb
-///
-/// I'll take you on a journey through the Rust ecosystem, exploring the available telemetry
-/// solutions, learning how to combine them together to build a coherent and comprehensive toolkit.
-///
-/// # How it works
-///
-/// The workshop is structured as a series of workshop-runner.
-/// Each koan is a standalone Rust project.
-/// A koan is solved when the project compiles and all its tests pass.
-/// You might have to replace intentional blanks (e.g. `____`) or fill in
-/// stubbed out functionality with your own code.
-///
-/// The workshop-runner are ordered, building on top of each other to form a
-/// coherent learning path.
-///
-/// Enjoy!
+//! Exercises will include `TODO`, `todo!()` or `__` markers to draw your attention to the lines
+//! where you need to write code.
+//! You'll need to replace these markers with your own code to complete the exercise.
+//! Sometimes it'll be enough to write a single line of code, other times you'll have to write
+//! longer sections.
+//!
+//! If you get stuck for more than 10 minutes on an exercise, grab a trainer! We're here to help!
+//! You can also find solutions to all exercises in the `solutions` git branch.
+
+fn greeting() -> &'static str {
+    todo!()
+}
+
+// Your solutions will be automatically verified by a set of tests.
+// You can run these tests directly by invoking the `cargo test` command in your terminal,
+// from the root of this exercise's directory. That's what the `wr` command does for you
+// under the hood.
+//
+// ⚠️ **DO NOT MODIFY THE TESTS** ⚠️
+// They are there to help you validate your solutions. You should only change the code that's being
+// tested, not the tests themselves.
 #[cfg(test)]
 mod tests {
+    use crate::greeting;
+
     #[test]
     fn starting_block() {
-        let msg = format!("I'm ready to __!");
+        let msg = greeting();
         assert_eq!(msg, "I'm ready to go!")
     }
 }
