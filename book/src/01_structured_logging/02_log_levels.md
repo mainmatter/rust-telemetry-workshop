@@ -25,7 +25,7 @@ How do we reconcile these needs?
 
 ## Log filtering
 
-The common solution is to use **log filters**.\ 
+The common solution is to use **log filters**.\
 A log filter is a predicate that determines whether a log record should be emitted or not.
 
 The filters are defined by the final binary, the application, therefore they are **tuned based
@@ -50,4 +50,3 @@ The filtered log statements disappear entirely: they don't exist in the compiled
 therefore they don't incur any runtime cost.\
 It is a great option to remove the noisiest log statements (e.g. `TRACE`-level), although
 it's not a silver bullet: you can't use it to filter out log records based on their source.
-

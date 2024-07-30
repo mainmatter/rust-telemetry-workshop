@@ -1,6 +1,7 @@
 # Panic handling
 
 There are two types of failures in Rust:
+
 - recoverable errors, using the `Result` type and the `Error` trait
 - panics, (almost) unrecoverable failures that unwind the stack
 
@@ -23,10 +24,10 @@ A few examples:
 ## Panics and telemetry
 
 Regardless of the source, you should build a telemetry pipeline that knows how to handle
-panics.  
+panics.
 
 Whenever a panic is triggered, Rust will start unwinding the stack and will eventually
-invoke the `panic` hook for your application.  
+invoke the `panic` hook for your application.\
 The default hook will print the panic message to `stderr` and then abort the process. This
 may be good enough if you're running your application in a terminal, but it's not going to be
 very useful if you're running in a production environment: you want the panic information

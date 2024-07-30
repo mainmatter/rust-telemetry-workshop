@@ -18,17 +18,17 @@ but be able to break it down further, you add **labels**.
 
 Labels are a set of key-value pairs that you specify when interacting with a metric.
 Under the hood, it behaves exactly as having separate metric series: recorders will track each
-combination of (metric name, [(label keys, label value)]) as its own unique metric.  
+combination of (metric name, [(label keys, label value)]) as its own unique metric.\
 But we retain the semantic understanding that they are all "subsets" of an overall measurement.
 
 # Cardinality
 
-Be **extremely** careful with labels!  
+Be **extremely** careful with labels!\
 You should only rely on labels for tracking dimensions that have a well-known and **bounded**
 cardinality (the set of possible values)—e.g. you don't want to add "user_id" as a label on
-your metrics!  
+your metrics!\
 Each unique label value creates its own metric series, significantly increasing the amount of
-memory and work necessary to keep track of those metrics in your application.  
+memory and work necessary to keep track of those metrics in your application.
 
 The number of metric series you are effectively creating/storing/exporting scales as the
 **product** of the cardinality of each label:

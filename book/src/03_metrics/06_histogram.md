@@ -21,4 +21,3 @@ takes is the bread and butter of histograms!
 
 Everything we learned about counters and gauges applies to histograms as well
 (description, units, labels).
-

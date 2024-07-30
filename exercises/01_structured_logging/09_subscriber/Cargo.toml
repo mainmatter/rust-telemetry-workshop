@@ -6,15 +6,15 @@ edition = "2021"
 [dependencies]
 anyhow = { workspace = true }
 helpers = { workspace = true }
-tracing = { workspace = true }
-tracing-subscriber = { workspace = true, default-features = true, features = ["fmt", "json", "env-filter"] }
-tracing-opentelemetry = { workspace = true }
-opentelemetry = { workspace = true }
-opentelemetry_sdk = { workspace = true, features = ["rt-tokio"] }
-opentelemetry-otlp = { workspace = true, features = ["tls-roots"] }
-tonic = { workspace = true }
 hyper = { workspace = true, features = ["full"] }
+opentelemetry = { workspace = true }
+opentelemetry-otlp = { workspace = true, features = ["tls-roots"] }
+opentelemetry_sdk = { workspace = true, features = ["rt-tokio"] }
+tonic = { workspace = true }
+tracing = { workspace = true }
+tracing-opentelemetry = { workspace = true }
+tracing-subscriber = { workspace = true, default-features = true, features = ["fmt", "json", "env-filter"] }
 
 [dev-dependencies]
-tokio = { workspace = true }
 serde_json = { workspace = true }
+tokio = { workspace = true }

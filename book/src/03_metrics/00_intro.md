@@ -48,6 +48,7 @@ The opposite applies to pre-aggregated metrics: they are cheaper to ship and sto
 they are rather inflexible.
 
 My recommendation is to follow a hybrid strategy:
+
 - Collect structured logs (with a smart sampling strategy) to ask arbitrary questions about
   your systems and dive deep.
 - Pre-compute all SLIs and other relevant quantities that you **know** you need to monitor.
@@ -62,4 +63,3 @@ This part of the workshop will focus on the `metrics` crate, our tool of choice 
 collecting and exporting pre-aggregated metrics in our Rust applications.
 
 Get ready!
-

@@ -3,15 +3,15 @@
 All the instrumentation work we have done so far has happened in a
 **synchronous** context.\
 We have only used async Rust on the processing side, to use non-blocking IO to ship telemetry
-data to a sink over the network (i.e. Honeycomb's API).  
+data to a sink over the network (i.e. Honeycomb's API).
 
-But what if we wanted to **instrument asynchronous code**?  
+But what if we wanted to **instrument asynchronous code**?
 
-It's trickier!  
+It's trickier!\
 There are some subtleties to be aware of, at the intersection between the lifecycle of a
 `tracing` span, work-stealing async runtimes and `tracing`'s internal state management.
 
-It's a lot to cover in a single exercise, so we'll break it down into smaller chunks.  
+It's a lot to cover in a single exercise, so we'll break it down into smaller chunks.\
 Let's start with the lifecycle of a span.
 
 # A span was born—what then?
@@ -39,12 +39,12 @@ let span = info_span!("my span");
 }
 ```
 
-Why would you do that, you may be wondering?  
+Why would you do that, you may be wondering?\
 Well, your span may be tracking a piece of work that can be **paused** (async, remember?).
 
-Creation and entering have two matching phases: **closing** and **exiting**.  
+Creation and entering have two matching phases: **closing** and **exiting**.
 
-A span is **exited** when the guard object returned by `.enter()` is dropped.  
+A span is **exited** when the guard object returned by `.enter()` is dropped.\
 A span is **closed**, instead, when there are no more handles to it. It's the subscriber's
 responsibility to do this bookkeeping.
 

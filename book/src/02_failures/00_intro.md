@@ -7,4 +7,3 @@ This section of the course focuses on failures—in particular, how to capture t
 occurrence in our telemetry data.
 
 Enjoy!
-

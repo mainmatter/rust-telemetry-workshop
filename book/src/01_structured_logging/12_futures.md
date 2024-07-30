@@ -40,7 +40,7 @@ asynchronous runtimes:
   multi-threaded **work-stealing**. The next time a future is polled, it may be
   **on a different thread**.
   This model comes with some advantages: you don't need to worry too much about balancing your
-  work across threads, the runtime will transparently take care of it for you.  
+  work across threads, the runtime will transparently take care of it for you.\
   It also introduces some challenges: you can't rely on thread-local state to keep track of
   values that the future cares about, because the next time it's polled it may be on a different
   thread where that state is not available (or it's set to a different value).
@@ -48,10 +48,10 @@ asynchronous runtimes:
 # `Instrumented`
 
 As much as possible, we want our instrumentation code to behave correctly no matter what runtime
-our code is being executed on.  
+our code is being executed on.\
 Let's assume that a future is a unit of work we want to track. We want to know how much time
 it spent doing work (i.e. inside `poll`), as well as how long it takes in terms of wall
-clock time.  
+clock time.\
 Based on what we discussed so far, it follows that:
 
 - Any `tracing`-specific state that is associated to our future (i.e. its span handle)

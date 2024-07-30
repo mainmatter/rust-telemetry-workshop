@@ -11,17 +11,17 @@ applications. In particular, as a way to diagnose if our applications are not be
 expected.
 
 The "easy" solution would be to log **everything**, a full-fidelity representation of the
-internal state of our applications.\  
+internal state of our applications.\\
 Unfortunately, that's usually not feasible: the cost of producing and storing that information
 would be prohibitive.
 
 Logs, therefore, are necessarily a **lossy** representation.
 We need to **choose carefully** what to log in order to maximize our chances of
-*spotting** problems and being able to **troubleshoot** them.
+_spotting_* problems and being able to **troubleshoot** them.
 
 ## Unit of work
 
-A good rule of thumb is to view your application logic as a series of **units of work**.  
+A good rule of thumb is to view your application logic as a series of **units of work**.\
 Each unit of work has a start and an end, and may in turn contain other sub-units of work.
 
 For each of those unit of work, we'll surely want to know:
@@ -35,7 +35,7 @@ one at the start and one at the end.
 ### How fine-grained should the units of work be?
 
 If you take this approach to the extreme, you could model each function call as a unit of work.
-While that _may_ be useful in some scenarios, it's not a good default.  
+While that _may_ be useful in some scenarios, it's not a good default.
 
 You should consider a unit of work as a **meaningful** piece of work, one that may
 occupy a **significant** amount of time with respect to the duration of the over-arching
@@ -50,4 +50,3 @@ body itself and the way it is being sent to the server.
 
 Always take the over-arching context into account when determining what should or should not
 be treated as a unit of work.
-

@@ -1,0 +1,45 @@
+name: "Site"
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions-rust-lang/setup-rust-toolchain@v1
+      - name: Install plugin
+        run: cargo install --git https://github.com/mainmatter/100-exercises-to-learn-rust mdbook-exercise-linker
+      - uses: taiki-e/install-action@v2
+        with:
+          tool: mdbook
+      - name: Build book
+        run: |
+          cd book
+          mdbook build
+      - name: Link Checker
+        uses: lycheeverse/lychee-action@v1
+        with:
+          fail: true
+          args: |
+            --exclude-loopback 
+            --require-https 
+            --no-progress 
+            book/book
+      # Upload the book as an artifact
+      - uses: actions/upload-artifact@v4
+        with:
+          name: book
+          path: book/book
+
+  formatter:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dprint/check@v2.2

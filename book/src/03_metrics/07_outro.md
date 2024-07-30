@@ -8,6 +8,7 @@ It's time to put everything together!
 Pick your web framework of choice—I recommend either `actix-web` or `axum`.
 
 You have to:
+
 - Configure a `tracing` subscriber that exports data to both Honeycomb and stdout, in JSON format
 - Configure a suitable panic hook
 - Configure a `metric` recorder that exposes metric data at `/metrics`, using a different port
@@ -17,9 +18,10 @@ You have to:
   - Track the number of concurrent requests using a gauge
   - Track request duration using a histogram
   - Track the number of handled requests
-  All metrics should include success/failure as a label.
+    All metrics should include success/failure as a label.
 
 Bonus points if you:
+
 - devise a mechanism for your request handlers to get a handle to the root span, in order to
   populate span fields with context from your domain layer
 - allow changing the set of filtered/included `tracing` spans at runtime
@@ -28,4 +30,5 @@ I don't have a suite of tests for you here, but please call me in when you're do
 see what you come up with!
 
 If you're looking for inspiration, you can check out these solutions:
+
 - [Official `actix-web` solution](https://github.com/actix/examples/tree/master/tracing/mainmatter-workshop)

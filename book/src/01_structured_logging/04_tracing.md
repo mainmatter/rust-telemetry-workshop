@@ -5,7 +5,7 @@
 In the previous exercise, we laid out the key abstraction we need to model our applications:
 **units of work**.\
 We've also tried to leverage the `log` crate to properly track them, but you may have noticed
-that it's not a perfect fit.  
+that it's not a perfect fit.
 
 The `log` crate is structured around the concept of **log events**.\
 There is no duration. There is also no **relationship** between one event and the other,
@@ -28,4 +28,3 @@ spans).\
 This is one of the reasons I chose to talk about `log` first: it's a gentler introduction
 to the overall facade pattern and by probing its limitations you (hopefully) have a better
 understanding of the rationale behind `tracing`'s additional complexity.
-

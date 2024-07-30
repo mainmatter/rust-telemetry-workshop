@@ -14,7 +14,7 @@ information that we want to log (i.e. the message) with the way we want to log i
 destination, `stdout`).\
 To change the destination, we would have to change the code that produces the log message.
 That's a problem: that log message might be coming from a third-party library,
-or from a part of the codebase that we don't own.  \
+or from a part of the codebase that we don't own.\
 Having to fork those modules to accommodate the logging requirements of the final application
 is a non-starter.
 
@@ -38,4 +38,3 @@ both first party code and third party dependencies.
 In the early days of the Rust ecosystem, the `log` crate arose as the de-facto standard
 logging facade for Rust applications.\
 Let's have a look at it!
-

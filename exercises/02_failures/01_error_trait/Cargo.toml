@@ -5,5 +5,5 @@ edition = "2021"
 
 [dependencies]
 helpers = { workspace = true }
-tracing-subscriber = { workspace = true, default-features = true, features = ["fmt"] }
 tracing = { workspace = true }
+tracing-subscriber = { workspace = true, default-features = true, features = ["fmt"] }

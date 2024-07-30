@@ -12,8 +12,8 @@ name = "file"
 path = "src/bins/file.rs"
 
 [dependencies]
-log = { workspace = true, features = ["std"] }
 fs-err = "2.9"
+log = { workspace = true, features = ["std"] }
 
 [dev-dependencies]
 assert_cmd = { workspace = true }

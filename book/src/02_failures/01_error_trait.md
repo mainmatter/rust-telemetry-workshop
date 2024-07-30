@@ -31,7 +31,7 @@ Let's unpack the definition:
 What does this mean for us?
 
 From a telemetry perspective, we should be careful and try to capture as much context
-as possible!  
+as possible!\
 The `Display` representation is likely to omit details which are going to be necessary
 to troubleshoot.
 The `Debug` representation will be more verbose, but it might still miss

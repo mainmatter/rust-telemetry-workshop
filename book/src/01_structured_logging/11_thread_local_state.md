@@ -12,7 +12,7 @@ The answer is **thread local state**.
 ## `thread_local!`
 
 Rust's standard library exposes a `thread_local!` macro that allows you to define a variable
-that is local to the current thread.  
+that is local to the current thread.\
 It's a bit like `static`, but it's not shared across threads.
 
 It comes with a caveat: if you move to a different thread, you won't be able to access the
@@ -20,7 +20,7 @@ value you set on the previous thread.
 
 ## Spawning threads breaks the hierarchy
 
-`tracing` uses thread local state to keep track of the currently active span.  
+`tracing` uses thread local state to keep track of the currently active span.\
 This has an interesting implication: if you spawn a thread to do some work, the spans
 created in that thread will **not** be linked to the spans created in the parent thread.
 

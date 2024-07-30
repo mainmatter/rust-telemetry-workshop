@@ -1,7 +1,7 @@
 # Describe
 
 Let's break down what happened in the last exercise.
-You created a counter: a **monotonically increasing** value.  
+You created a counter: a **monotonically increasing** value.\
 Once it has been created, its value can only be incremented.
 
 You can create a counter using the `counter!` macro.
@@ -21,8 +21,7 @@ When using `counter!`, the `Recorder` implementation is expected to:
 
 # Metadata
 
-It can be useful to add metadata to your counters (and metrics in general).  
+It can be useful to add metadata to your counters (and metrics in general).\
 You can rely on the `describe_*` macros offered by the `metrics!` crate: they let you add
 a unit (e.g. capture that the counter value represents bytes or seconds) and a description
 (which recorders can then choose to expose when metrics are exported/analyzes).
-

@@ -35,7 +35,7 @@ common choice for Prometheus).
 The recommended Prometheus configuration is pull-based.
 You can also choose to push metrics though, using their push gateway.
 
-In both cases, you can rely on the `metrics-exporter-prometheus` crate.  
+In both cases, you can rely on the `metrics-exporter-prometheus` crate.\
 It provides a recorder implementation that can be configured to either listen to incoming
 HTTP requests or push data on a schedule.
 

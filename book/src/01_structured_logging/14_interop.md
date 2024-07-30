@@ -10,7 +10,7 @@ pipeline to process telemetry coming from both sources.
 # `tracing-log`
 
 The `tracing-log` crate can act as such a bridge: it provides you with a `log`-compatible
-processor which redirects all `log` events to `tracing`.  
+processor which redirects all `log` events to `tracing`.
 
 Be mindful: if you're using `tracing_subscriber::fmt` as your `tracing` subscriber, it'll
 automatically install this bridge for you unless you explicitly disable the `tracing-log`

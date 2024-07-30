@@ -9,12 +9,12 @@ We haven't fully replicated our `log` version though:
 2. we're not capturing the duration of each unit of work
 
 2 is easily achieved by tweaking the configuration for our subscriber (`.with_timer(Uptime)`),
-so let's focus on 1., the outcome.  
+so let's focus on 1., the outcome.\
 To pull it off in an idiomatic way, we need to learn about **span fields**.
 
 ## Span fields
 
-`tracing` allows us to attach key-value pairs to spans, which we refer to as **span fields**.  
+`tracing` allows us to attach key-value pairs to spans, which we refer to as **span fields**.\
 The syntax looks like this:
 
 ```rust
@@ -43,7 +43,7 @@ span.record("foo", 43);
 
 won't work because the field `foo` is not defined when the span is created. No error will be
 raised, but the field will be ignored at runtime—that `record` call will have no effect
-whatsoever.  
+whatsoever.
 
 You may be wondering: what if I don't know the value of a field upfront?\
 Good question! You can use the `tracing::field::Empty` as value for it when defining the span:

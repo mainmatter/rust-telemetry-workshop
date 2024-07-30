@@ -12,5 +12,5 @@ name = "module"
 path = "src/bins/module.rs"
 
 [dependencies]
-log = { workspace = true, features = ["std"] }
 assert_cmd = { workspace = true }
+log = { workspace = true, features = ["std"] }

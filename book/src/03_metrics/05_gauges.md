@@ -15,4 +15,3 @@ kinds of measurements.
 The value of a gauge is expected to be a float, rather than an integer.
 Apart from that, everything else we learned about counters applies to gauges as well
 (description, units, labels).
-
