@@ -7,5 +7,5 @@ edition = "2021"
 metrics = { workspace = true }
 metrics-exporter-prometheus = { workspace = true }
 metrics-util = { workspace = true }
-ureq = { workspace = true }
 rustls = { workspace = true }
+ureq = { workspace = true }
