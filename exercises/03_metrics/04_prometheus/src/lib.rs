@@ -12,6 +12,9 @@ mod tests {
     ///
     /// Initialize a pull-based Prometheus recorder, listening on the address specified as input.
     fn init_test_recorder(socket_addr: SocketAddr) {
+        // Needed for TLS to work
+        rustls::crypto::aws_lc_rs::default_provider().install_default().unwrap();
+
         todo!()
     }
 

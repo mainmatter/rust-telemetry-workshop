@@ -1,4 +1,5 @@
 use opentelemetry::KeyValue;
+use opentelemetry::trace::TracerProvider;
 use opentelemetry_otlp::WithExportConfig;
 use opentelemetry_sdk::trace::Tracer;
 use opentelemetry_sdk::{runtime, Resource};
@@ -46,4 +47,5 @@ pub fn init_tracer() -> Tracer {
         )
         .install_batch(runtime::Tokio)
         .unwrap()
+        .tracer("rust-telemetry-workshop")
 }
