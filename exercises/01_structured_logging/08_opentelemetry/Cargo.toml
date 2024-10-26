@@ -9,7 +9,7 @@ hyper = { workspace = true, features = ["full"] }
 opentelemetry = { workspace = true }
 opentelemetry-otlp = { workspace = true, features = ["tls-roots"] }
 opentelemetry_sdk = { workspace = true, features = ["rt-tokio"] }
-tonic = { workspace = true }
+tonic = { workspace = true, features = ["tls-roots"] }
 tracing = { workspace = true }
 tracing-opentelemetry = { workspace = true }
 tracing-subscriber = { workspace = true, default-features = true, features = ["fmt", "json"] }
