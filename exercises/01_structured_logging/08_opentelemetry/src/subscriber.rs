@@ -1,8 +1,9 @@
-use opentelemetry::KeyValue;
 use opentelemetry::trace::TracerProvider;
+use opentelemetry::KeyValue;
 use opentelemetry_otlp::WithExportConfig;
-use opentelemetry_sdk::trace::Tracer;
+use opentelemetry_sdk::trace::{BatchConfigBuilder, Tracer};
 use opentelemetry_sdk::{runtime, Resource};
+use std::time::Duration;
 use tonic::metadata::MetadataMap;
 use tracing_subscriber::layer::SubscriberExt;
 use tracing_subscriber::util::SubscriberInitExt;
@@ -41,9 +42,15 @@ pub fn init_tracer() -> Tracer {
         .with_exporter(
             opentelemetry_otlp::new_exporter()
                 .tonic()
+                .with_tls_config(tonic::transport::ClientTlsConfig::new().with_native_roots())
                 .with_endpoint("https://api.honeycomb.io/api/traces")
                 .with_timeout(std::time::Duration::from_secs(5))
                 .with_metadata(map),
+        )
+        .with_batch_config(
+            BatchConfigBuilder::default()
+                .with_scheduled_delay(Duration::from_millis(100))
+                .build(),
         )
         .install_batch(runtime::Tokio)
         .unwrap()
