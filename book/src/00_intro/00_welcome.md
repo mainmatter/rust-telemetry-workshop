@@ -50,7 +50,7 @@ We also recommend you work on a branch, so you can easily track your progress an
 in updates from the main repository, if needed:
 
 ```bash
-cd rust-telemetry-workshop 
+cd rust-telemetry-workshop
 git checkout -b my-solutions
 ```
 
@@ -61,15 +61,10 @@ automatically verify your solution.
 
 ### `wr`, the workshop runner
 
-To verify your solutions, we've provided a tool that will guide you through the course.
-It is the `wr` CLI (short for "workshop runner").
-Install it with:
+To verify your solutions, we've also provided a tool to guide you through the course: the `wr` CLI, short for "workshop runner".
+Install `wr` by following the instructions on [its website](https://mainmatter.github.io/rust-workshop-runner/).
 
-```bash
-cargo install --locked workshop-runner
-```
-
-In a new terminal, navigate back to the top-level folder of the repository.
+Once you have `wr` installed, open a new terminal and navigate to the top-level folder of the repository.
 Run the `wr` command to start the course:
 
 ```bash
