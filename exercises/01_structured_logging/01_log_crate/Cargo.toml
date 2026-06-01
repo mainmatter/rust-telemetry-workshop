@@ -12,7 +12,7 @@ name = "file"
 path = "src/bins/file.rs"
 
 [dependencies]
-fs-err = "2.9"
+fs-err = "3.3"
 log = { workspace = true, features = ["std"] }
 
 [dev-dependencies]
