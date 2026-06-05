@@ -7,7 +7,7 @@ edition = "2021"
 anyhow = { workspace = true }
 hyper = { workspace = true, features = ["full"] }
 opentelemetry = { workspace = true }
-opentelemetry-otlp = { workspace = true, features = ["tls-roots"] }
+opentelemetry-otlp = { workspace = true, features = ["grpc-tonic", "tls-ring"] }
 opentelemetry_sdk = { workspace = true, features = ["rt-tokio"] }
 tonic = { workspace = true }
 tracing = { workspace = true }
