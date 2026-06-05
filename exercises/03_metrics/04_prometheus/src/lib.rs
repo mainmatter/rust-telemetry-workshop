@@ -13,7 +13,9 @@ mod tests {
     /// Initialize a pull-based Prometheus recorder, listening on the address specified as input.
     fn init_test_recorder(socket_addr: SocketAddr) {
         // Needed for TLS to work
-        rustls::crypto::aws_lc_rs::default_provider().install_default().unwrap();
+        rustls::crypto::aws_lc_rs::default_provider()
+            .install_default()
+            .unwrap();
 
         todo!()
     }
@@ -29,7 +31,7 @@ mod tests {
 
         let metrics_endpoint = format!("http://{}:{}", listener_addr.ip(), listener_addr.port());
         let response = ureq::get(&metrics_endpoint).call().unwrap();
-        let body = response.into_string().unwrap();
+        let body = response.into_body().read_to_string().unwrap();
         // This is what metrics look like when exported in Prometheus' format!
         // You can clearly see how each combination of metric name and labels value is, under the
         // hood, its own metric series.
