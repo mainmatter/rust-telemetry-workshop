@@ -48,5 +48,8 @@ Throughout the workshop, the following resources might turn out to be useful:
 
 # License
 
-Copyright © 2023- Mainmatter GmbH (https://mainmatter.com), released under the
-[Creative Commons Attribution-NonCommercial 4.0 International license](https://creativecommons.org/licenses/by-nc/4.0/).
+Copyright © 2024- Mainmatter GmbH (https://mainmatter.com), released under the
+[PolyForm-Noncommercial-1.0.0](https://polyformproject.org/licenses/noncommercial/1.0.0).
+
+If you're planning to use this course internally at your company, please [reach out](mailto:training@mainmatter.com) for a license.
+We also offer this course as an [instructor-led workshop](https://mainmatter.com/training/telemetry-for-rust-apis/).
