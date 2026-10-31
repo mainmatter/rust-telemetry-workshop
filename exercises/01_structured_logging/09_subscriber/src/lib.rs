@@ -9,7 +9,7 @@
 //! You can look at the subscribers we built in the previous exercises for inspiration!
 mod subscriber;
 
-pub use subscriber::init_test_subscriber;
+pub use subscriber::{init_test_subscriber, init_tracer_provider};
 use tracing::{instrument, Span};
 
 /// Given a list of order numbers, compute the total price.
@@ -17,9 +17,8 @@ use tracing::{instrument, Span};
 pub fn get_total(order_numbers: &[u64]) -> Result<u64, anyhow::Error> {
     let mut total = 0;
     for order_number in order_numbers {
-        let order_details = get_order_details(*order_number).map_err(|e| {
+        let order_details = get_order_details(*order_number).inspect_err(|_| {
             Span::current().record("outcome", "failure");
-            e
         })?;
         total += order_details.price;
     }
@@ -35,11 +34,11 @@ pub struct OrderDetails {
 /// A dummy function to simulate what would normally be a database query.
 #[instrument("retrieve order", level = tracing::Level::TRACE, skip_all, fields(outcome))]
 fn get_order_details(order_number: u64) -> Result<OrderDetails, anyhow::Error> {
-    if order_number % 4 == 0 {
+    if order_number.is_multiple_of(4) {
         Span::current().record("outcome", "failure");
         Err(anyhow::anyhow!("Failed to talk to the database"))
     } else {
-        let prices = vec![999, 1089, 1029];
+        let prices = [999, 1089, 1029];
         Span::current().record("outcome", "success");
         Ok(OrderDetails {
             order_number,

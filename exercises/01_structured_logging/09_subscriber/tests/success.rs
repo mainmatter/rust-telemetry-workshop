@@ -1,10 +1,10 @@
-use opentelemetry::global::shutdown_tracer_provider;
 use serde_json::json;
-use subscriber::init_test_subscriber;
+use subscriber::{init_test_subscriber, init_tracer_provider};
 
 #[tokio::test]
 async fn success() {
-    let logging_buffer = init_test_subscriber();
+    let provider = init_tracer_provider();
+    let logging_buffer = init_test_subscriber(&provider);
     let order_numbers = vec![1, 2, 3];
 
     let total = subscriber::get_total(&order_numbers).unwrap();
@@ -25,7 +25,8 @@ async fn success() {
     log_lines.end();
 
     // Ensure all spans are exported
-    tokio::task::spawn_blocking(|| shutdown_tracer_provider())
+    tokio::task::spawn_blocking(move || provider.shutdown())
         .await
-        .unwrap();
+        .unwrap()
+        .expect("Error shutting down Open Telemetry tracing");
 }

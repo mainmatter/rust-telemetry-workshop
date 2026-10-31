@@ -22,7 +22,7 @@ Let's unpack the definition:
 - All errors must implement the `Display` trait. This representation is primarily designed
   for **users**. It should be understandable by a person that is not familiar (nor has access)
   to the internals of the system.
-- An errors may travel through multiple "layers" in your application. E.g. a failure to execute
+- An error may travel through multiple "layers" in your application. E.g. a failure to execute
   a query might arise from a network error, which in turn might be caused by a DNS resolution
   failure.
   Each additional semantic layer is often represented as a wrapper over the original error.
